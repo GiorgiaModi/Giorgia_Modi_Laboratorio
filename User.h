@@ -7,11 +7,14 @@
 
 #include "ShoppingList.h"
 #include "Observer.h"
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
 class User: public Observer{
 public:
 
-    User(){
+    User(const map<string, ShoppingList *> &myLists) : myLists(myLists) {
         for(auto&itr:myLists)
             itr.second->subscribe(this);
     }
@@ -22,11 +25,11 @@ public:
             itr.second->unsubscribe(this);
     }
 
+    //void addShoppingList(ShoppingList* shoppingList);
+
     virtual void update(const string& listName) override;
 
-    void addShoppingList(ShoppingList* shoppingList);
-
-    bool removeShoppingList(const string& name);
+    void removeShoppingList(const string& name);
 
 private:
 

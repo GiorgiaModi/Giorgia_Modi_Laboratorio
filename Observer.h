@@ -5,10 +5,13 @@
 #ifndef ESAME_LABORATORIO_OBSERVER_H
 #define ESAME_LABORATORIO_OBSERVER_H
 
+#include <string>
+
+using namespace std;
 
 class Observer {
 public:
-    virtual ~Observer()=default;
+    virtual ~Observer(){}
 
     virtual void update(const string& listName)=0;
 };

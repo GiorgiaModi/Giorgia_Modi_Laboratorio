@@ -8,28 +8,24 @@ void ShoppingList::addItem(Item* item) {
 
     auto itr=shoppingList.find(item->itemName);
     if(itr==shoppingList.end()) //l'oggetto non è ancora presente
-    {
         shoppingList.insert(make_pair(item->itemName,item));
-        item->itemQuantity++;
-    }
     else
-        itr->second->itemQuantity++;
+        itr->second->itemQuantity+=item->itemQuantity;
 
     notify();
 }
 
 
-bool ShoppingList::removeItem(const string &name) {
+void ShoppingList::removeItem(const string &name) {
     auto itr=shoppingList.find(name);
     if(itr==shoppingList.end())
     {
         cout<<"There isn't any "<< name<< "  in the list :("<<endl;
-        return false;
     }
     else {
         shoppingList.erase(name);
+        itr->second->itemQuantity=0;
         notify();
-        return true;
     }
 }
 
@@ -54,11 +50,11 @@ void ShoppingList::setBought(const string& name) {
 
     if(itr!= shoppingList.end())
     {
-        bool bought= itr->second->bought;
-        if(bought)
-            bought=false;    //segno l'oggetto come da comprare
+        bool isBought=itr->second->bought;
+        if(isBought==true)
+            itr->second->bought=false;
         else
-            bought=true;    //segno l'oggetto come comprato
+            itr->second->bought=true;
 
         notify();
     }
@@ -86,19 +82,36 @@ void ShoppingList::notify()
 }
 
 
-void ShoppingList::toDo() {
+void ShoppingList::printNotBought() {
 
     int result=0;
-    cout<<"Oggetti da acquistare nella lista "<<shoppingListName<< ":  "<<endl;
+    cout<<"Oggetti da acquistare: ";
     cout<<endl;
     for(auto&itr: shoppingList)
     {
-        if(itr.second->bought) {
+        if(itr.second->bought==false) {
             result += itr.second->itemQuantity;   //conto gli oggetti da acquistare;
-            cout << itr.second->itemName << endl;
+            cout << itr.second->itemName;
+            cout<<"      "<<itr.second->itemQuantity<<endl;
         }
     }
     cout<<endl;
-    cout<<"Numero oggetti da acquistare: "<<result<<endl;
+    cout<<"Numero totale oggetti da acquistare: "<<result<<endl;
+    cout<<endl;
+}
+
+
+void ShoppingList::print() {
+    cout<<"Nome lista:  "<< shoppingListName<<endl;
+
+    for(auto&itr: shoppingList)
+    {
+        cout<<itr.first<<"     "<<itr.second->itemQuantity;
+        if(itr.second->bought)
+            cout<<"       Bought"<<endl;
+        else
+            cout<<"       Not bought"<<endl;
+    }
+
 }
 

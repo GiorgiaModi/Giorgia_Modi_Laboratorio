@@ -4,32 +4,31 @@
 
 #include "User.h"
 
-void User::addShoppingList(ShoppingList *shoppingList) {
+/*void User::addShoppingList(ShoppingList *shoppingList) {
     myLists.insert(make_pair(shoppingList->getShoppingListName(),shoppingList));
+    shoppingList->subscribe(this);
+
 }
+ */
 
 
-bool User::removeShoppingList(const string &name) {
+void User::removeShoppingList(const string &name) {
     auto itr=myLists.find(name);
     if(itr==myLists.end())
     {
         cout<<"There isn't any "<< name<< "  in MyLists :("<<endl;
-        return false;
     }
     else {
         myLists.erase(name);
-        return true;
     }
+    itr->second->unsubscribe(this);
 }
 
 
 void User::update(const string& listName) {
     auto itr=myLists.find(listName);
+    cout<< "Lista ' "<< listName<<" ' aggiornata: "<< endl;
+    cout<<endl;
+    itr->second->printNotBought();
 
-    if(itr!=myLists.end())
-    {
-        cout<< "Lista ' "<< listName<<" ' aggiornata: "<< endl;
-        cout<<endl;
-        itr->second->toDo();
-    }
 }
