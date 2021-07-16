@@ -9,31 +9,24 @@
 #include "Observer.h"
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
 
-class User: public Observer{
+class User : public Observer {
 public:
 
-    User(const map<string, ShoppingList *> &myLists) : myLists(myLists) {
-        for(auto&itr:myLists)
-            itr.second->subscribe(this);
-    }
-
-    virtual ~User()
-    {
-        for(auto&itr:myLists)
+    virtual ~User() {
+        for (auto &itr:myLists)
             itr.second->unsubscribe(this);
     }
 
-    //void addShoppingList(ShoppingList* shoppingList);
+    void addShoppingList(ShoppingList *shoppingList);
 
-    virtual void update(const string& listName) override;
+    virtual void update(const string &listName) override;
 
-    void removeShoppingList(const string& name);
+    void removeShoppingList(const string &name);
 
-private:
-
-    map<string,ShoppingList*> myLists; //le liste sono i subject; un User può avere più subject
+    map<string, ShoppingList *> myLists; //le liste sono i subject; un User può avere più subject
 };
 
 

@@ -7,91 +7,217 @@
 using namespace std;
 
 
-
-
 int main() {
 
+    cout<< "Welcome! Thanks to this program you will be able to memorize your shopping lists in a simple way"<<endl;
+    cout<<endl<<endl<<endl;
 
-    ShoppingList casa ("Casa");
-    ShoppingList cibo("Cibo");
-    ShoppingList bevande ("Bevande");
-
-    Item cartaigienica("cartaigienica",2);
-    Item fazzoletti("fazzoletti");
-    Item zampironi("zampironi",5);
-    Item zampironi2("zampironi",2);
-
-    Item frutta("frutta");
-    Item verdura("verdura");
-    Item merendine("merendine",10);
-    Item prosciutto("prosciutto");
-
-    Item acqua("acqua",5);
-    Item fanta("fanta",3);
-    Item redbull ("redbull",4);
-    Item coca ("coca");
+    bool create=true;
+    int result;
+    map <string, ShoppingList> shoppingLists;
+    map <string, Item> items;
+    map <string,User> users;
 
 
+    cout<<"Create the shopping lists: "<<endl<<endl;
 
-    casa.addItem(&cartaigienica);
-    casa.addItem(&fazzoletti);
-    casa.addItem(&zampironi);
-    casa.addItem(&zampironi2);
+    while(create)
+    {
+        cout<<endl;
+        cout<<"Enter 1 if you want to create a new shopping list, 2 if you want to move on"<<endl;
+        cin>>result;
 
-    casa.print();
+        switch (result) {
+            case 1 : {
+                string shoppingListName;
+                cout<< "Insert shopping list name: "<<endl;
+                cin>>shoppingListName;
+                ShoppingList s(shoppingListName);
+                shoppingLists.insert(make_pair(shoppingListName,s));
+                break;
+            }
+
+            case 2 : {
+                create=false;
+                break;
+            }
+        }
+    }
+
     cout<<endl;
+    cout<<"Create the items: "<<endl<<endl;
 
-    cibo.addItem(&frutta);
-    cibo.addItem(&verdura);
-    cibo.addItem(&merendine);
-    cibo.addItem(&prosciutto);
+    create=true;
+    while(create)
+    {
+        cout<<endl;
+        cout<<"Enter 1 if you want to create a new item, 2 if you want to move on"<<endl;
+        cin>>result;
 
-    cibo.print();
+        switch (result) {
+            case 1 : {
+                string itemName;
+                int quantity=1;
+                cout<<"Insert item name and quantity: "<<endl;
+                cin>>itemName;
+                cin>>quantity;
+                Item i(itemName,quantity);
+                items.insert(make_pair(itemName,i));
+                break;
+            }
+
+            case 2 : {
+                create=false;
+                break;
+            }
+        }
+    }
+
     cout<<endl;
+    cout<<"Create the users: "<<endl<<endl;
 
-    bevande.addItem(&acqua);
-    bevande.addItem(&fanta);
-    bevande.addItem(&redbull);
-    bevande.addItem(&coca);
+    create=true;
+    while(create)
+    {
+        cout<<endl;
+        cout<<"Enter 1 if you want to create a new user, 2 if you want to move on"<<endl;
+        cin>>result;
 
-    bevande.print();
-    cout<<endl;
-/*
-    casa.removeItem("zampiron");
-    casa.print();
-    cout<<endl;
+        switch (result) {
+            case 1 : {
+                string userName;
+                cout<<"Insert User name: "<<endl;
+                cin>>userName;
+                User u;
+                users.insert(make_pair(userName,u));
+                break;
+            }
 
-    casa.removeItem("zampironi");
-    casa.print();
-    cout<<endl;
+            case 2 : {
+                create=false;
+                break;
+            }
+        }
+    }
 
-    bevande.setBought("coca");
-    bevande.print();
-    cout<<endl;
+    cout<<endl<<endl;
+    cout<<"Now it's time to perform operations on created users / lists / objects"<<endl;
+    cout<<"From the  moment of adding lists to  a user's list of lists, any changes to the lists will be notified to the user."<<endl<<endl;
 
-    casa.setBought("zampironi");
-    casa.print();
-    cout<<endl;
-*/
+    bool operations=true;
+    while(operations)
+    {
+        cout<<endl;
+        cout<<"Operations:"<<endl<<"1) add item to list "<<endl<<"2) remove item from list (insert list name and item name)"<<endl;
+        cout<<"3) mark an item as bought "<<endl<<"4) add shopping list to a user's shopping lists"<<endl<< "5) remove shopping list from a user's shopping lists"<<endl;
+        cout<<"6) no more operations"<<endl;
+        cin>>result;
+        cout<<endl;
+        switch (result) {
+            case 1 :{
+                string listName;
+                string itemName;
+                cout<<"Insert list name and item name"<<endl;
+                cin>>listName;
+                cin>>itemName;
+                auto itrl=shoppingLists.find(listName);
+                auto itri=items.find(itemName);
+                if(itrl==shoppingLists.end()||itri==items.end())
+                    cout<<"No list/item with this name :("<<endl;
+                else
+                {
+                    itrl->second.addItem(&(itri->second));
+                }
+                break;
+            }
 
-    map<string,ShoppingList*> giorgia;
-    giorgia.insert(make_pair("Casa",&casa));
-    giorgia.insert(make_pair("Bevande",&bevande));
-    giorgia.insert(make_pair("Cibo",&cibo));
+            case 2: {
+                string itemName;
+                string listName;
+                cout<<"Insert list name and item name"<<endl;
+                cin>>listName;
+                cin>>itemName;
+                auto itrl=shoppingLists.find(listName);
+                auto itri=items.find(itemName);
+                if(itrl==shoppingLists.end()||itri==items.end())
+                    cout<<"No list/item with this name :("<<endl;
+                else
+                {
+                    itrl->second.removeItem(itemName);
+                }
+                break;
+            }
 
-    User Giorgia(giorgia);
+            case 3: {
+                string itemName;
+                string listName;
+                cout<<"Insert list name and item name"<<endl;
+                cin>>listName;
+                cin>>itemName;
+                auto itrl=shoppingLists.find(listName);
+                auto itri=items.find(itemName);
+                if(itrl==shoppingLists.end()||itri==items.end())
+                    cout<<"No list/item with this name :("<<endl;
+                else
+                {
+                    itrl->second.setBought(itemName);
+                }
+                break;
+            }
 
-    casa.removeItem("zampironi");
+            case 4: {
+                string userName;
+                string listName;
+                cout<<"Insert list name and user name"<<endl;
+                cin>>listName;
+                cin>>userName;
+                auto itrl=shoppingLists.find(listName);
+                auto itru=users.find(userName);
+                if(itrl==shoppingLists.end()||itru==users.end())
+                    cout<<"No user/list with this name :("<<endl;
+                else
+                {
+                    itru->second.addShoppingList(&(itrl->second));
+                }
+                break;
+            }
 
-    Item pane("pane",6);
-    cibo.addItem(&pane);
+            case 5: {
+                string userName;
+                string listName;
+                cout<<"Insert list name and user name"<<endl;
+                cin>>listName;
+                cin>>userName;
+                auto itrl=shoppingLists.find(listName);
+                auto itru=users.find(userName);
+                if(itrl==shoppingLists.end()||itru==users.end())
+                    cout<<"No user/list with this name :("<<endl;
+                else
+                {
+                    itru->second.removeShoppingList(listName);
+                }
+                break;
+            }
+
+            case 6: {
+                operations=false;
+                break;
+            }
+        }
+    }
+
+    cout<<"Let's see your users/lists/ items"<<endl;
+    for(auto&itr: users)
+    {
+        cout<<endl;
+        cout<<"User name:  "<< itr.first<<endl;
+        for(auto &itl: itr.second.myLists)
+        {
+            cout<<endl;
+            itl.second->print();
+        }
+    }
 
 
     return 0;
-    /*
-    Giorgia.addShoppingList(&cibo);
-    Giorgia.addShoppingList(&bevande);
-    */
-
-
 }
