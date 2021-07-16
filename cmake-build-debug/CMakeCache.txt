@@ -266,10 +266,10 @@ Esame_Laboratorio_BINARY_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio/cma
 Esame_Laboratorio_SOURCE_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio
 
 //Value Computed by CMake
-gtest_BINARY_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest
+gtest_BINARY_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest-master/googletest
 
 //Value Computed by CMake
-gtest_SOURCE_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio/Test/lib/googletest
+gtest_SOURCE_DIR:STATIC=C:/Users/Giorg/Desktop/Esame_Laboratorio/Test/lib/googletest-master/googletest
 
 //Build gtest's sample programs.
 gtest_build_samples:BOOL=OFF
@@ -403,7 +403,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

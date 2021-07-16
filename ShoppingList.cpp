@@ -38,10 +38,6 @@ const string &ShoppingList::getShoppingListName() const {
 }
 
 
-void ShoppingList::setShoppingListName(const string &shoppingListName) {
-    ShoppingList::shoppingListName = shoppingListName;
-}
-
 
 void ShoppingList::setBought(const string &name) {
     auto itr = shoppingList.find(name);
@@ -104,5 +100,19 @@ void ShoppingList::print() {
             cout << "       Not bought" << endl;
     }
 
+}
+
+void ShoppingList::setShoppingListName(const string &shoppingListName) {
+    ShoppingList::shoppingListName = shoppingListName;
+}
+
+int ShoppingList::notBought() {
+    int result=0;
+    for (auto itr: shoppingList) {
+        if (itr.second->bought == false) {
+            result += itr.second->itemQuantity;   //conto gli oggetti da acquistare;
+        }
+    }
+    return result;
 }
 

@@ -19,6 +19,7 @@ using namespace std;
 struct Item{
 public:
     Item(string s, int q=1):  itemName(std::move(s)),itemQuantity(q),bought(false){}
+    Item()=default;
     string itemName;
     int itemQuantity;
     bool bought;
@@ -27,6 +28,8 @@ public:
 
 class ShoppingList: public Subject {
 public:
+
+    ShoppingList()=default;
 
     ShoppingList(const string &shoppingListName) : shoppingListName(shoppingListName) {}
 
@@ -44,6 +47,8 @@ public:
 
     void setBought(const string& name);
 
+    int notBought();
+
     void printNotBought();
 
     void print();
@@ -53,7 +58,6 @@ public:
     const string &getShoppingListName() const;
 
     void setShoppingListName(const string &shoppingListName);
-
 
 private:
 

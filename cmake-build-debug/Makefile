@@ -141,13 +141,65 @@ Esame_Laboratorio/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/build
 .PHONY : Esame_Laboratorio/fast
 
+#=============================================================================
+# Target rules for targets named core
+
+# Build rule for target.
+core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 core
+.PHONY : core
+
+# fast build rule for target.
+core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/build
+.PHONY : core/fast
+
+#=============================================================================
+# Target rules for targets named runListsTest
+
+# Build rule for target.
+runListsTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 runListsTest
+.PHONY : runListsTest
+
+# fast build rule for target.
+runListsTest/fast:
+	$(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/build
+.PHONY : runListsTest/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 ShoppingList.obj: ShoppingList.cpp.obj
 
 .PHONY : ShoppingList.obj
 
 # target to build an object file
 ShoppingList.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/ShoppingList.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/ShoppingList.cpp.obj
 .PHONY : ShoppingList.cpp.obj
 
 ShoppingList.i: ShoppingList.cpp.i
@@ -156,7 +208,7 @@ ShoppingList.i: ShoppingList.cpp.i
 
 # target to preprocess a source file
 ShoppingList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/ShoppingList.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/ShoppingList.cpp.i
 .PHONY : ShoppingList.cpp.i
 
 ShoppingList.s: ShoppingList.cpp.s
@@ -165,8 +217,35 @@ ShoppingList.s: ShoppingList.cpp.s
 
 # target to generate assembly for a file
 ShoppingList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/ShoppingList.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/ShoppingList.cpp.s
 .PHONY : ShoppingList.cpp.s
+
+Test/run_all_tests.obj: Test/run_all_tests.cpp.obj
+
+.PHONY : Test/run_all_tests.obj
+
+# target to build an object file
+Test/run_all_tests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.obj
+.PHONY : Test/run_all_tests.cpp.obj
+
+Test/run_all_tests.i: Test/run_all_tests.cpp.i
+
+.PHONY : Test/run_all_tests.i
+
+# target to preprocess a source file
+Test/run_all_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.i
+.PHONY : Test/run_all_tests.cpp.i
+
+Test/run_all_tests.s: Test/run_all_tests.cpp.s
+
+.PHONY : Test/run_all_tests.s
+
+# target to generate assembly for a file
+Test/run_all_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.s
+.PHONY : Test/run_all_tests.cpp.s
 
 User.obj: User.cpp.obj
 
@@ -174,7 +253,7 @@ User.obj: User.cpp.obj
 
 # target to build an object file
 User.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/User.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/User.cpp.obj
 .PHONY : User.cpp.obj
 
 User.i: User.cpp.i
@@ -183,7 +262,7 @@ User.i: User.cpp.i
 
 # target to preprocess a source file
 User.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/User.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/User.cpp.i
 .PHONY : User.cpp.i
 
 User.s: User.cpp.s
@@ -192,7 +271,7 @@ User.s: User.cpp.s
 
 # target to generate assembly for a file
 User.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Esame_Laboratorio.dir\build.make CMakeFiles/Esame_Laboratorio.dir/User.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/User.cpp.s
 .PHONY : User.cpp.s
 
 main.obj: main.cpp.obj
@@ -231,9 +310,16 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Esame_Laboratorio
+	@echo ... core
+	@echo ... gtest
+	@echo ... gtest_main
+	@echo ... runListsTest
 	@echo ... ShoppingList.obj
 	@echo ... ShoppingList.i
 	@echo ... ShoppingList.s
+	@echo ... Test/run_all_tests.obj
+	@echo ... Test/run_all_tests.i
+	@echo ... Test/run_all_tests.s
 	@echo ... User.obj
 	@echo ... User.i
 	@echo ... User.s
