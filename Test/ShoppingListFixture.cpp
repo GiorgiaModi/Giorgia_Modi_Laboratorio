@@ -84,6 +84,16 @@ TEST_F(ShoppingListSuite,TestSubject)
 }
 
 
+TEST_F(ShoppingListSuite, TestNotBought) {
+    ASSERT_EQ(7,s.notBought());
+}
+
+
+TEST_F(ShoppingListSuite, GettersAndSetters)
+{
+    s.setShoppingListName("lavoro");
+    ASSERT_EQ("lavoro",s.getShoppingListName());
+}
 
 
 

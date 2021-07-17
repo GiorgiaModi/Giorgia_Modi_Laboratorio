@@ -28,11 +28,6 @@ void ShoppingList::removeItem(const string &name) {
 }
 
 
-const map<string, Item *> &ShoppingList::getShoppingList() const {
-    return shoppingList;
-}
-
-
 const string &ShoppingList::getShoppingListName() const {
     return shoppingListName;
 }

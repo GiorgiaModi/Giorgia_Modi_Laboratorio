@@ -19,7 +19,7 @@ int main() {
     map <string,User> users;
 
 
-    cout<<"Create the shopping lists: "<<endl<<endl;
+    cout<<"         Create the shopping lists: "<<endl<<endl;
 
     while(create)
     {
@@ -45,7 +45,7 @@ int main() {
     }
 
     cout<<endl;
-    cout<<"Create the items: "<<endl<<endl;
+    cout<<"         Create the items: "<<endl<<endl;
 
     create=true;
     while(create)
@@ -74,7 +74,7 @@ int main() {
     }
 
     cout<<endl;
-    cout<<"Create the users: "<<endl<<endl;
+    cout<<"         Create the users: "<<endl<<endl;
 
     create=true;
     while(create)
@@ -210,7 +210,7 @@ int main() {
     for(auto&itr: users)
     {
         cout<<endl;
-        cout<<"User name:  "<< itr.first<<endl;
+        cout<<"     User name:  "<< itr.first<<endl;
         for(auto &itl: itr.second.myLists)
         {
             cout<<endl;

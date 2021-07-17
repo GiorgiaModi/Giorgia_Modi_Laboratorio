@@ -53,8 +53,6 @@ public:
 
     void print();
 
-    const map<string, Item *> &getShoppingList() const;
-
     const string &getShoppingListName() const;
 
     void setShoppingListName(const string &shoppingListName);
