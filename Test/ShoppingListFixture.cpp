@@ -5,6 +5,7 @@
 
 #include "gtest/gtest.h"
 #include "../ShoppingList.h"
+#include "../User.h"
 
 class ShoppingListSuite:  public::testing::Test{
 
@@ -26,6 +27,7 @@ protected:
     Item frutta;
     Item verdura;
     Item pane;
+    User user;
 };
 
 
@@ -45,13 +47,23 @@ TEST_F(ShoppingListSuite, TestParametrizeConstructor) {
 TEST_F(ShoppingListSuite, TestAddItem) {
     Item carne("carne",4);
     s.addItem(&carne);
-    ASSERT_EQ(s.notBought(),11);
+    int size=s.shoppingList.size();
+    ASSERT_EQ(size,4);    //item nella lista
+    ASSERT_EQ(s.notBought(),11); //oggetti da comprare in totale
+
+    Item carne2("carne",2);    //provo ad aggiungere un oggetto con lo stesso nome(deve cambiare solo il numero tot di oggetti)
+    s.addItem(&carne2);
+    size=s.shoppingList.size();
+    ASSERT_EQ(size,4);
+    ASSERT_EQ(s.notBought(),13);
 }
 
 
 
 TEST_F(ShoppingListSuite, TestRemoveItem) {
     s.removeItem("frutta");
+    int size=s.shoppingList.size();
+    ASSERT_EQ(size,2);
     ASSERT_EQ(s.notBought(),6);
 }
 
@@ -59,6 +71,16 @@ TEST_F(ShoppingListSuite, TestRemoveItem) {
 TEST_F(ShoppingListSuite, TestSetBought) {
     s.setBought("frutta");
     ASSERT_EQ(s.notBought(),6);
+}
+
+
+TEST_F(ShoppingListSuite,TestSubject)
+{
+    s.subscribe(&user);
+    ASSERT_EQ(1,s.observers.size());
+
+    s.unsubscribe(&user);
+    ASSERT_EQ(0,s.observers.size());
 }
 
 

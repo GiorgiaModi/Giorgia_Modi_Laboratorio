@@ -1,0 +1,11 @@
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/CMakeFiles/Esame_Laboratorio.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/CMakeFiles/core.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/CMakeFiles/runListsTest.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/CMakeFiles/edit_cache.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/CMakeFiles/rebuild_cache.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest-master/googletest/CMakeFiles/edit_cache.dir
+C:/Users/Giorg/Desktop/Esame_Laboratorio/cmake-build-debug/Test/lib/googletest-master/googletest/CMakeFiles/rebuild_cache.dir

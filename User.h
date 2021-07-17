@@ -27,6 +27,7 @@ public:
     void removeShoppingList(const string &name);
 
     map<string, ShoppingList *> myLists; //le liste sono i subject; un User può avere più subject
+
 };
 
 

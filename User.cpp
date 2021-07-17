@@ -22,15 +22,11 @@ void User::removeShoppingList(const string &name) {
 
 
 void User::update(const string &listName) {
-    try{
 
     auto itr = myLists.find(listName);
-
     cout << "Lista ' " << listName << " ' aggiornata: " << endl;
     cout << endl;
     itr->second->printNotBought();
-    } catch (...) {
-        cout << "Exception: " << endl;
-    }
+
 
 }

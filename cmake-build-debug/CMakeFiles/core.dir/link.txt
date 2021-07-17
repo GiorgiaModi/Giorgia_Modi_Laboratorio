@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libcore.a CMakeFiles/core.dir/ShoppingList.cpp.obj CMakeFiles/core.dir/User.cpp.obj
+C:\MinGW\bin\ranlib.exe libcore.a

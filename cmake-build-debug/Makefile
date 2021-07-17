@@ -220,33 +220,6 @@ ShoppingList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/ShoppingList.cpp.s
 .PHONY : ShoppingList.cpp.s
 
-Test/run_all_tests.obj: Test/run_all_tests.cpp.obj
-
-.PHONY : Test/run_all_tests.obj
-
-# target to build an object file
-Test/run_all_tests.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.obj
-.PHONY : Test/run_all_tests.cpp.obj
-
-Test/run_all_tests.i: Test/run_all_tests.cpp.i
-
-.PHONY : Test/run_all_tests.i
-
-# target to preprocess a source file
-Test/run_all_tests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.i
-.PHONY : Test/run_all_tests.cpp.i
-
-Test/run_all_tests.s: Test/run_all_tests.cpp.s
-
-.PHONY : Test/run_all_tests.s
-
-# target to generate assembly for a file
-Test/run_all_tests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Test/run_all_tests.cpp.s
-.PHONY : Test/run_all_tests.cpp.s
-
 User.obj: User.cpp.obj
 
 .PHONY : User.obj
@@ -317,9 +290,6 @@ help:
 	@echo ... ShoppingList.obj
 	@echo ... ShoppingList.i
 	@echo ... ShoppingList.s
-	@echo ... Test/run_all_tests.obj
-	@echo ... Test/run_all_tests.i
-	@echo ... Test/run_all_tests.s
 	@echo ... User.obj
 	@echo ... User.i
 	@echo ... User.s
