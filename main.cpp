@@ -4,6 +4,7 @@
 #include "Observer.h"
 #include "User.h"
 #include <string>
+#include <stdexcept>
 using namespace std;
 
 
@@ -20,6 +21,7 @@ int main() {
 
 
     cout<<"         Create the shopping lists: "<<endl<<endl;
+
 
     while(create)
     {
@@ -61,8 +63,11 @@ int main() {
                 cout<<"Insert item name and quantity: "<<endl;
                 cin>>itemName;
                 cin>>quantity;
-                Item i(itemName,quantity);
-                items.insert(make_pair(itemName,i));
+                try{
+                    Item i(itemName,quantity);
+                    items.insert(make_pair(itemName,i));
+                }catch(std::out_of_range& e){
+                    cerr<<e.what()<<endl;}
                 break;
             }
 
@@ -122,12 +127,16 @@ int main() {
                 cin>>itemName;
                 auto itrl=shoppingLists.find(listName);
                 auto itri=items.find(itemName);
-                if(itrl==shoppingLists.end()||itri==items.end())
-                    cout<<"No list/item with this name :("<<endl;
-                else
-                {
-                    itrl->second.addItem(&(itri->second));
-                }
+
+                try {
+                    if(itrl==shoppingLists.end()||itri==items.end())
+                            throw std::invalid_argument("Invalid list/item name");
+                    else
+                    {
+                            itrl->second.addItem(&(itri->second));
+                    }
+                }catch(std::invalid_argument& e){
+                    cout<<e.what()<<endl;}
                 break;
             }
 
@@ -139,12 +148,14 @@ int main() {
                 cin>>itemName;
                 auto itrl=shoppingLists.find(listName);
                 auto itri=items.find(itemName);
-                if(itrl==shoppingLists.end()||itri==items.end())
-                    cout<<"No list/item with this name :("<<endl;
-                else
-                {
-                    itrl->second.removeItem(itemName);
-                }
+                try {
+                    if (itrl == shoppingLists.end() || itri == items.end())
+                        throw std::invalid_argument("Invalid list/item name");
+                    else
+                        itrl->second.removeItem(itemName);
+
+                }catch(std::invalid_argument& e){
+                        cerr<<e.what()<<endl;}
                 break;
             }
 
@@ -156,12 +167,14 @@ int main() {
                 cin>>itemName;
                 auto itrl=shoppingLists.find(listName);
                 auto itri=items.find(itemName);
-                if(itrl==shoppingLists.end()||itri==items.end())
-                    cout<<"No list/item with this name :("<<endl;
-                else
-                {
-                    itrl->second.setBought(itemName);
-                }
+                try {
+                    if (itrl == shoppingLists.end() || itri == items.end())
+                        throw std::invalid_argument("Invalid list/item name");
+                    else
+                        itrl->second.setBought(itemName);
+
+                }catch(std::invalid_argument& e){
+                    cerr<<e.what()<<endl;}
                 break;
             }
 
@@ -173,12 +186,15 @@ int main() {
                 cin>>userName;
                 auto itrl=shoppingLists.find(listName);
                 auto itru=users.find(userName);
-                if(itrl==shoppingLists.end()||itru==users.end())
-                    cout<<"No user/list with this name :("<<endl;
-                else
-                {
-                    itru->second.addShoppingList(&(itrl->second));
-                }
+                try {
+                    if(itrl==shoppingLists.end()||itru==users.end())
+                        throw std::invalid_argument("Invalid list/user name");
+                    else
+                    {
+                        itru->second.addShoppingList(&(itrl->second));
+                    }
+                }catch(std::invalid_argument& e){
+                    cerr<<e.what()<<endl;}
                 break;
             }
 
@@ -190,12 +206,15 @@ int main() {
                 cin>>userName;
                 auto itrl=shoppingLists.find(listName);
                 auto itru=users.find(userName);
-                if(itrl==shoppingLists.end()||itru==users.end())
-                    cout<<"No user/list with this name :("<<endl;
-                else
-                {
-                    itru->second.removeShoppingList(listName);
-                }
+                try {
+                    if(itrl==shoppingLists.end()||itru==users.end())
+                        throw std::invalid_argument("Invalid list/user name");
+                    else
+                    {
+                        itru->second.removeShoppingList(listName);
+                    }
+                }catch(std::invalid_argument& e){
+                    cerr<<e.what()<<endl;}
                 break;
             }
 

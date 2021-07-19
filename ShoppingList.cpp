@@ -6,11 +6,14 @@
 
 void ShoppingList::addItem(Item *item) {
 
-    auto itr = shoppingList.find(item->itemName);
+    auto itr = shoppingList.find(item->getItemName());
     if (itr == shoppingList.end()) //l'oggetto non è ancora presente
-        shoppingList.insert(make_pair(item->itemName, item));
+        shoppingList.insert(make_pair(item->getItemName(), item));
     else
-        itr->second->itemQuantity += item->itemQuantity;
+    {
+        int result= itr->second->getItemQuantity() + item->getItemQuantity();
+        itr->second->setItemQuantity(result);
+    }
 
     notify();
 }
@@ -19,10 +22,10 @@ void ShoppingList::addItem(Item *item) {
 void ShoppingList::removeItem(const string &name) {
     auto itr = shoppingList.find(name);
     if (itr == shoppingList.end()) {
-        cout << "There isn't any " << name << "  in the list :(" << endl;
+        throw std::invalid_argument("Invalid item name");
     } else {
         shoppingList.erase(name);
-        itr->second->itemQuantity = 0;
+        itr->second->setItemQuantity(0);
         notify();
     }
 }
@@ -38,15 +41,15 @@ void ShoppingList::setBought(const string &name) {
     auto itr = shoppingList.find(name);
 
     if (itr != shoppingList.end()) {
-        bool isBought = itr->second->bought;
+        bool isBought = itr->second->isBought();
         if (isBought == true)
-            itr->second->bought = false;
+            itr->second->setBought(false);
         else
-            itr->second->bought = true;
+            itr->second->setBought(true);
 
         notify();
     } else
-        cout << "There isn't any " << name << "  in the list :(" << endl;
+        throw std::invalid_argument("Invalid item name");
 }
 
 
@@ -72,10 +75,10 @@ void ShoppingList::printNotBought() {
     cout << "Oggetti da acquistare: ";
     cout << endl;
     for (auto itr: shoppingList) {
-        if (itr.second->bought == false) {
-            result += itr.second->itemQuantity;   //conto gli oggetti da acquistare;
-            cout << itr.second->itemName;
-            cout << "      " << itr.second->itemQuantity << endl;
+        if (itr.second->isBought() == false) {
+            result += itr.second->getItemQuantity();   //conto gli oggetti da acquistare;
+            cout << itr.second->getItemName();
+            cout << "      " << itr.second->getItemQuantity() << endl;
         }
     }
     cout << endl;
@@ -88,8 +91,8 @@ void ShoppingList::print() {
     cout << "Nome lista:  " << shoppingListName << endl;
 
     for (auto &itr: shoppingList) {
-        cout << itr.first << "     " << itr.second->itemQuantity;
-        if (itr.second->bought)
+        cout << itr.first << "     " << itr.second->getItemQuantity();
+        if (itr.second->isBought())
             cout << "       Bought" << endl;
         else
             cout << "       Not bought" << endl;
@@ -103,9 +106,9 @@ void ShoppingList::setShoppingListName(const string &shoppingListName) {
 
 int ShoppingList::notBought() {
     int result=0;
-    for (auto itr: shoppingList) {
-        if (itr.second->bought == false) {
-            result += itr.second->itemQuantity;   //conto gli oggetti da acquistare;
+    for (auto &itr: shoppingList) {
+        if (itr.second->isBought() == false) {
+            result += itr.second->getItemQuantity();   //conto gli oggetti da acquistare;
         }
     }
     return result;

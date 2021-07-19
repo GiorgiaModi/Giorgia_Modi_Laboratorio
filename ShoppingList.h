@@ -8,27 +8,16 @@
 
 #include "Observer.h"
 #include "Subject.h"
+#include "Item.h"
 #include <map>
 #include <list>
 #include <string>
 #include <utility>
+#include <exception>
+#include <stdexcept>
 
 #include <iostream>
 using namespace std;
-
-struct Item{
-public:
-    Item(string s, int q=1):  itemName(std::move(s)){
-        if(q>=0)
-            itemQuantity=q;
-        else
-            throw std::out_of_range("the quantity entered is not positive");
-    }
-
-    string itemName;
-    int itemQuantity;
-    bool bought;
-};
 
 
 class ShoppingList: public Subject {

@@ -9,6 +9,8 @@
 #include "Observer.h"
 #include <iostream>
 #include <algorithm>
+#include <exception>
+#include <stdexcept>
 
 using namespace std;
 

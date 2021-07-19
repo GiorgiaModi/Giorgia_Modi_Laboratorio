@@ -193,6 +193,33 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+Item.obj: Item.cpp.obj
+
+.PHONY : Item.obj
+
+# target to build an object file
+Item.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Item.cpp.obj
+.PHONY : Item.cpp.obj
+
+Item.i: Item.cpp.i
+
+.PHONY : Item.i
+
+# target to preprocess a source file
+Item.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Item.cpp.i
+.PHONY : Item.cpp.i
+
+Item.s: Item.cpp.s
+
+.PHONY : Item.s
+
+# target to generate assembly for a file
+Item.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Item.cpp.s
+.PHONY : Item.cpp.s
+
 ShoppingList.obj: ShoppingList.cpp.obj
 
 .PHONY : ShoppingList.obj
@@ -287,6 +314,9 @@ help:
 	@echo ... gtest
 	@echo ... gtest_main
 	@echo ... runListsTest
+	@echo ... Item.obj
+	@echo ... Item.i
+	@echo ... Item.s
 	@echo ... ShoppingList.obj
 	@echo ... ShoppingList.i
 	@echo ... ShoppingList.s

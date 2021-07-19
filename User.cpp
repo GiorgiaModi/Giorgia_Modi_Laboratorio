@@ -13,7 +13,7 @@ void User::addShoppingList(ShoppingList *shoppingList) {
 void User::removeShoppingList(const string &name) {
     auto itr = myLists.find(name);
     if (itr == myLists.end()) {
-        cout << "There isn't any " << name << "  in MyLists :(" << endl;
+        throw std::invalid_argument("Invalid shopping list name");
     } else {
         myLists.erase(name);
     }

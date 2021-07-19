@@ -143,6 +143,33 @@ runListsTest/fast:
 	cd /d C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug && $(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/build
 .PHONY : runListsTest/fast
 
+ItemTest.obj: ItemTest.cpp.obj
+
+.PHONY : ItemTest.obj
+
+# target to build an object file
+ItemTest.cpp.obj:
+	cd /d C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug && $(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/ItemTest.cpp.obj
+.PHONY : ItemTest.cpp.obj
+
+ItemTest.i: ItemTest.cpp.i
+
+.PHONY : ItemTest.i
+
+# target to preprocess a source file
+ItemTest.cpp.i:
+	cd /d C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug && $(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/ItemTest.cpp.i
+.PHONY : ItemTest.cpp.i
+
+ItemTest.s: ItemTest.cpp.s
+
+.PHONY : ItemTest.s
+
+# target to generate assembly for a file
+ItemTest.cpp.s:
+	cd /d C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug && $(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/ItemTest.cpp.s
+.PHONY : ItemTest.cpp.s
+
 ObserverTest.obj: ObserverTest.cpp.obj
 
 .PHONY : ObserverTest.obj
@@ -260,6 +287,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... runListsTest
+	@echo ... ItemTest.obj
+	@echo ... ItemTest.i
+	@echo ... ItemTest.s
 	@echo ... ObserverTest.obj
 	@echo ... ObserverTest.i
 	@echo ... ObserverTest.s

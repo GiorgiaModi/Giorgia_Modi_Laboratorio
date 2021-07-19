@@ -141,7 +141,7 @@ CMakeFiles/Esame_Laboratorio.dir/all: CMakeFiles/core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Esame_Laboratorio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Esame_Laboratorio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Esame_Laboratorio.dir/rule
@@ -163,12 +163,12 @@ CMakeFiles/Esame_Laboratorio.dir/clean:
 CMakeFiles/core.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=3,4,5 "Built target core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=3,4,5,6 "Built target core"
 .PHONY : CMakeFiles/core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/core.dir/rule
@@ -192,12 +192,12 @@ Test/CMakeFiles/runListsTest.dir/all: Test/lib/googletest-master/googletest/CMak
 Test/CMakeFiles/runListsTest.dir/all: CMakeFiles/core.dir/all
 	$(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f Test\CMakeFiles\runListsTest.dir\build.make Test/CMakeFiles/runListsTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=10,11,12,13,14 "Built target runListsTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=11,12,13,14,15,16 "Built target runListsTest"
 .PHONY : Test/CMakeFiles/runListsTest.dir/all
 
 # Build rule for subdir invocation for target.
 Test/CMakeFiles/runListsTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Test/CMakeFiles/runListsTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles 0
 .PHONY : Test/CMakeFiles/runListsTest.dir/rule
@@ -219,7 +219,7 @@ Test/CMakeFiles/runListsTest.dir/clean:
 Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=6,7 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target gtest"
 .PHONY : Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -246,7 +246,7 @@ Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/clean:
 Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all: Test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f Test\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\build.make Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=8,9 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=9,10 "Built target gtest_main"
 .PHONY : Test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.

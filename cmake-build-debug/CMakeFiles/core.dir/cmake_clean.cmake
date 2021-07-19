@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/core.dir/Item.cpp.obj"
   "CMakeFiles/core.dir/ShoppingList.cpp.obj"
   "CMakeFiles/core.dir/User.cpp.obj"
   "libcore.a"

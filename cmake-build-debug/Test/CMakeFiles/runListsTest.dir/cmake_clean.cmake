@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/runListsTest.dir/ItemTest.cpp.obj"
   "CMakeFiles/runListsTest.dir/ObserverTest.cpp.obj"
   "CMakeFiles/runListsTest.dir/ShoppingListFixture.cpp.obj"
   "CMakeFiles/runListsTest.dir/UserFixture.cpp.obj"

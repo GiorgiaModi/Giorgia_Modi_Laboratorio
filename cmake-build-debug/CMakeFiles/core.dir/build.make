@@ -101,19 +101,34 @@ CMakeFiles/core.dir/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/User.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Giorg\Desktop\Esame_Laboratorio\User.cpp -o CMakeFiles\core.dir\User.cpp.s
 
+CMakeFiles/core.dir/Item.cpp.obj: CMakeFiles/core.dir/flags.make
+CMakeFiles/core.dir/Item.cpp.obj: ../Item.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/core.dir/Item.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\core.dir\Item.cpp.obj -c C:\Users\Giorg\Desktop\Esame_Laboratorio\Item.cpp
+
+CMakeFiles/core.dir/Item.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/Item.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Giorg\Desktop\Esame_Laboratorio\Item.cpp > CMakeFiles\core.dir\Item.cpp.i
+
+CMakeFiles/core.dir/Item.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/Item.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Giorg\Desktop\Esame_Laboratorio\Item.cpp -o CMakeFiles\core.dir\Item.cpp.s
+
 # Object files for target core
 core_OBJECTS = \
 "CMakeFiles/core.dir/ShoppingList.cpp.obj" \
-"CMakeFiles/core.dir/User.cpp.obj"
+"CMakeFiles/core.dir/User.cpp.obj" \
+"CMakeFiles/core.dir/Item.cpp.obj"
 
 # External object files for target core
 core_EXTERNAL_OBJECTS =
 
 libcore.a: CMakeFiles/core.dir/ShoppingList.cpp.obj
 libcore.a: CMakeFiles/core.dir/User.cpp.obj
+libcore.a: CMakeFiles/core.dir/Item.cpp.obj
 libcore.a: CMakeFiles/core.dir/build.make
 libcore.a: CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libcore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Giorg\Desktop\Esame_Laboratorio\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libcore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\core.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\core.dir\link.txt --verbose=$(VERBOSE)
 
