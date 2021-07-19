@@ -12,7 +12,7 @@ using namespace std;
 
 class Item {
 public:
-    Item(string s, int q=1):  itemName(std::move(s)){
+    Item(string s, string c, int q=1):  itemName(std::move(s)),category(std::move(c)){
         if(q>=0)
             itemQuantity=q;
         else
@@ -25,6 +25,14 @@ public:
 
     void setItemName(const string &itemName) {
         Item::itemName = itemName;
+    }
+
+    const string &getCategory() const {
+        return category;
+    }
+
+    void setCategory(const string &category) {
+        Item::category = category;
     }
 
     int getItemQuantity() const {
@@ -48,6 +56,7 @@ public:
 
 private:
     string itemName;
+    string category;
     int itemQuantity;
     bool bought;
 };

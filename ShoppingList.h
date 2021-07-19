@@ -58,6 +58,7 @@ private:
 
     list<Observer*> observers;
     map<string, shared_ptr<Item>> shoppingList;
+    list<string> categories;
     string shoppingListName;
 
 };

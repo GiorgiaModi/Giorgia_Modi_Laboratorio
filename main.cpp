@@ -59,15 +59,27 @@ int main() {
         switch (result) {
             case 1 : {
                 string itemName;
-                int quantity=1;
-                cout<<"Insert item name and quantity: "<<endl;
+                int defaultQuantity=1;
+                string quantityString;
+                int quantityInt;
+                string itemCategory;
+                cout<<"Insert item name, item category and quantity: "<<endl;
                 cin>>itemName;
-                cin>>quantity;
+                cin>>itemCategory;
+                cin>>quantityString;
+
+                try {
+                    quantityInt = std::stoi(quantityString);
+                }catch(invalid_argument& e)  //se inserisco enter viene impostato valore di default
+                {
+                    quantityInt=defaultQuantity;
+                }
+
                 try{
-                    Item i(itemName,quantity);
+                    Item i(itemName,itemCategory,quantityInt);
                     items.insert(make_pair(itemName,i));
-                }catch(std::out_of_range& e){
-                    cerr<<e.what()<<endl;}
+                }catch(std::out_of_range& e2){
+                    cerr<<e2.what()<<endl;}
                 break;
             }
 

@@ -18,6 +18,19 @@ void ShoppingList::addItem(Item &item) {
         itr->second->setItemQuantity(result);
     }
 
+    string itemCat=item.getCategory();   //serve in seguito per andare a stampare gli oggetti in base alla categoria
+    bool flag=false;
+    for(auto&it: categories)
+    {
+        if(it==itemCat)
+        {
+            flag=true;
+            break;
+        }
+    }
+    if(flag==false)
+        categories.push_back(itemCat);
+
     notify();
 }
 
@@ -91,17 +104,36 @@ void ShoppingList::printNotBought() {
 
 
 void ShoppingList::print() {
-    cout << "Nome lista:  " << shoppingListName << endl;
+    cout << "Nome lista:  " << shoppingListName << endl<<endl;
 
-    for (auto &itr: shoppingList) {
-        cout << itr.first << "     " << itr.second->getItemQuantity();
-        if (itr.second->isBought()==true)
-            cout << "       Bought" << endl;
-        else
-            cout << "       Not bought" << endl;
+    string cat;
+    bool first;
+    for (auto &itr: categories) {
+       cat=itr;
+       first=true;
+       for(auto &s: shoppingList)
+       {
+           if(s.second->getCategory()==cat)
+           {
+               if(first)
+               {
+                   cout<<"Categoria:  "<<cat<<endl;
+                   first=false;
+               }
+
+               cout << s.first << "     " << s.second->getItemQuantity();
+               if (s.second->isBought()==true)
+                   cout << "       Bought" << endl;
+               else
+                   cout << "       Not bought" << endl;
+
+
+           }
+       }
     }
 
 }
+
 
 void ShoppingList::setShoppingListName(const string &shoppingListName) {
     ShoppingList::shoppingListName = shoppingListName;
