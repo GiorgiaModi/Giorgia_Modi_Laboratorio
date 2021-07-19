@@ -30,3 +30,7 @@ void User::update(const string &listName) {
 
 
 }
+
+const map<string, ShoppingList *> &User::getMyLists() const {
+    return myLists;
+}

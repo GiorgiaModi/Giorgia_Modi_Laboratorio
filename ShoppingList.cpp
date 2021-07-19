@@ -42,7 +42,7 @@ void ShoppingList::setBought(const string &name) {
 
     if (itr != shoppingList.end()) {
         bool isBought = itr->second->isBought();
-        if (isBought == true)
+        if (isBought)
             itr->second->setBought(false);
         else
             itr->second->setBought(true);
@@ -74,8 +74,8 @@ void ShoppingList::printNotBought() {
     int result = 0;
     cout << "Oggetti da acquistare: ";
     cout << endl;
-    for (auto itr: shoppingList) {
-        if (itr.second->isBought() == false) {
+    for (auto &itr: shoppingList) {
+        if (!itr.second->isBought()) {
             result += itr.second->getItemQuantity();   //conto gli oggetti da acquistare;
             cout << itr.second->getItemName();
             cout << "      " << itr.second->getItemQuantity() << endl;
@@ -107,10 +107,19 @@ void ShoppingList::setShoppingListName(const string &shoppingListName) {
 int ShoppingList::notBought() {
     int result=0;
     for (auto &itr: shoppingList) {
-        if (itr.second->isBought() == false) {
+        if (!itr.second->isBought()) {
             result += itr.second->getItemQuantity();   //conto gli oggetti da acquistare;
         }
     }
     return result;
 }
+
+const map<string, Item *> &ShoppingList::getShoppingList() const {
+    return shoppingList;
+}
+
+const list<Observer *> &ShoppingList::getObservers() const {
+    return observers;
+}
+
 

@@ -49,12 +49,14 @@ public:
 
     void setShoppingListName(const string &shoppingListName);
 
-    list<Observer*> observers;
+    const map<string, Item *> &getShoppingList() const;
 
-    map<string,Item*> shoppingList;
+    const list<Observer *> &getObservers() const;
 
 private:
 
+    list<Observer*> observers;
+    map<string,Item*> shoppingList;
     string shoppingListName;
 
 };

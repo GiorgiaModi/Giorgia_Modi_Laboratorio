@@ -28,6 +28,9 @@ public:
 
     void removeShoppingList(const string &name);
 
+    const map<string, ShoppingList *> &getMyLists() const;
+
+private:
     map<string, ShoppingList *> myLists; //le liste sono i subject; un User può avere più subject
 
 };

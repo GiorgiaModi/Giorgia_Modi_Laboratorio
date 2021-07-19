@@ -21,11 +21,7 @@ public:
 protected:
 
     void SetUp() override {
-
-        s.setShoppingListName("Casa");
         s.subscribe(this);
-        carta.itemName="carta";
-        carta.itemQuantity=3;
 
     }
 
@@ -34,8 +30,8 @@ protected:
     }
 
     bool updated = false;
-    ShoppingList s;
-    Item carta;
+    ShoppingList s {"Casa"};
+    Item carta {"carta",3};
 
 };
 

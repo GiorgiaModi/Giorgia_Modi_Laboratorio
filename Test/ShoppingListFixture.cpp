@@ -10,20 +10,19 @@
 class ShoppingListSuite:  public::testing::Test{
 
 protected:
+protected:
+
     void SetUp() override {
-        s=new ShoppingList("casa");
-        frutta=new Item("frutta",1);
-        verdura=new Item("verdura",1);
-        pane=new Item("pane",5);
-        s->addItem(frutta);
-        s->addItem(verdura);
-        s->addItem(pane);
+        s.addItem(&frutta);
+        s.addItem(&verdura);
+        s.addItem(&pane);
     }
 
-    ShoppingList *s;
-    Item* frutta;
-    Item* verdura;
-    Item* pane;
+
+    ShoppingList s{"casa"};
+    Item frutta{"frutta",1};
+    Item verdura{"verdura",1};
+    Item pane{"pane",5};
     User user;
 };
 
@@ -37,53 +36,54 @@ TEST_F(ShoppingListSuite, TestParametrizeConstructor) {
 
 TEST_F(ShoppingListSuite, TestAddItem) {
     Item carne("carne",4);
-    s->addItem(&carne);
-    int size=s->shoppingList.size();
+    s.addItem(&carne);
+    int size=s.getShoppingList().size();
     ASSERT_EQ(size,4);    //item nella lista
-    ASSERT_EQ(s->notBought(),11); //oggetti da comprare in totale
+
+    ASSERT_EQ(s.notBought(),11); //oggetti da comprare in totale
 
     Item carne2("carne",2);    //provo ad aggiungere un oggetto con lo stesso nome(deve cambiare solo il numero tot di oggetti)
-    s->addItem(&carne2);
-    size=s->shoppingList.size();
+    s.addItem(&carne2);
+    size=s.getShoppingList().size();
     ASSERT_EQ(size,4);
-    ASSERT_EQ(s->notBought(),13);
+    ASSERT_EQ(s.notBought(),13);
 }
 
 
 
 TEST_F(ShoppingListSuite, TestRemoveItem) {
-    s->removeItem("frutta");
-    int size=s->shoppingList.size();
+    s.removeItem("frutta");
+    int size=s.getShoppingList().size();
     ASSERT_EQ(size,2);
-    ASSERT_EQ(s->notBought(),6);
+    ASSERT_EQ(s.notBought(),6);
 }
 
 
 TEST_F(ShoppingListSuite, TestSetBought) {
-    s->setBought("frutta");
-    ASSERT_EQ(s->notBought(),6);
+    s.setBought("frutta");
+    ASSERT_EQ(s.notBought(),6);
 }
 
 
 TEST_F(ShoppingListSuite,TestSubject)
 {
-    s->subscribe(&user);
-    ASSERT_EQ(1,s->observers.size());
+    s.subscribe(&user);
+    ASSERT_EQ(1,s.getObservers().size());
 
-    s->unsubscribe(&user);
-    ASSERT_EQ(0,s->observers.size());
+    s.unsubscribe(&user);
+    ASSERT_EQ(0,s.getObservers().size());
 }
 
 
 TEST_F(ShoppingListSuite, TestNotBought) {
-    ASSERT_EQ(7,s->notBought());
+    ASSERT_EQ(7,s.notBought());
 }
 
 
 TEST_F(ShoppingListSuite, GettersAndSetters)
 {
-    s->setShoppingListName("lavoro");
-    ASSERT_EQ("lavoro",s->getShoppingListName());
+    s.setShoppingListName("lavoro");
+    ASSERT_EQ("lavoro",s.getShoppingListName());
 }
 
 

@@ -230,7 +230,7 @@ int main() {
     {
         cout<<endl;
         cout<<"     User name:  "<< itr.first<<endl;
-        for(auto &itl: itr.second.myLists)
+        for(auto &itl: itr.second.getMyLists())
         {
             cout<<endl;
             itl.second->print();

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Giorg/Desktop/Esame_Laboratorio/Item.h
+string
+-
+exception
+-
+stdexcept
+-
+
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
 string
 -
@@ -15,6 +23,8 @@ Observer.h
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
 Subject.h
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Subject.h
+Item.h
+C:/Users/Giorg/Desktop/Esame_Laboratorio/Item.h
 map
 -
 list
@@ -22,6 +32,10 @@ list
 string
 -
 utility
+-
+exception
+-
+stdexcept
 -
 iostream
 -
@@ -39,6 +53,10 @@ iostream
 -
 algorithm
 -
+exception
+-
+stdexcept
+-
 
 C:/Users/Giorg/Desktop/Esame_Laboratorio/main.cpp
 iostream
@@ -52,5 +70,7 @@ C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
 User.h
 C:/Users/Giorg/Desktop/Esame_Laboratorio/User.h
 string
+-
+stdexcept
 -
 

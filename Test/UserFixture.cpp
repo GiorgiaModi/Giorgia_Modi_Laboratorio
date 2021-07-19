@@ -9,14 +9,14 @@
 class UserSuite : public ::testing::Test {
 
 protected:
+protected:
+
     virtual void SetUp() {
-        s1.setShoppingListName("Casa");
-        s2.setShoppingListName("Lavoro");
         u.addShoppingList(&s1);
     }
 
-    ShoppingList s1;
-    ShoppingList s2;
+    ShoppingList s1{"Casa"};
+    ShoppingList s2{"Lavoro"};
     User u;
 
 };
@@ -25,7 +25,7 @@ protected:
 TEST_F(UserSuite, TestAddShoppingList) {
     u.addShoppingList(&s2);
 
-    ASSERT_EQ(2,u.myLists.size());
+    ASSERT_EQ(2,u.getMyLists().size());
 }
 
 
@@ -33,5 +33,5 @@ TEST_F(UserSuite, TestAddShoppingList) {
 TEST_F(UserSuite, TestRemoveShoppingList) {
     u.removeShoppingList("Casa");
 
-    ASSERT_EQ(0,u.myLists.size());
+    ASSERT_EQ(0,u.getMyLists().size());
 }
