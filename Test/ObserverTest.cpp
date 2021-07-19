@@ -39,7 +39,7 @@ protected:
 TEST_F(ObserverTest, Update) {
     ASSERT_FALSE(isUpdated());
 
-    s.addItem(&carta);
+    s.addItem(carta);
     ASSERT_TRUE(isUpdated());
 }
 

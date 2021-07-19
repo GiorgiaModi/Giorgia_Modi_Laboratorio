@@ -133,7 +133,7 @@ int main() {
                             throw std::invalid_argument("Invalid list/item name");
                     else
                     {
-                            itrl->second.addItem(&(itri->second));
+                            itrl->second.addItem(itri->second);
                     }
                 }catch(std::invalid_argument& e){
                     cout<<e.what()<<endl;}
@@ -191,7 +191,7 @@ int main() {
                         throw std::invalid_argument("Invalid list/user name");
                     else
                     {
-                        itru->second.addShoppingList(&(itrl->second));
+                        itru->second.addShoppingList(itrl->second);
                     }
                 }catch(std::invalid_argument& e){
                     cerr<<e.what()<<endl;}

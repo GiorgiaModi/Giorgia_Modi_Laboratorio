@@ -12,20 +12,22 @@ protected:
 protected:
 
     virtual void SetUp() {
-        u.addShoppingList(&s1);
+        u.addShoppingList(s1);
+        u.addShoppingList(s2);
     }
 
     ShoppingList s1{"Casa"};
     ShoppingList s2{"Lavoro"};
+    ShoppingList s3{"Famiglia"};
     User u;
 
 };
 
 
 TEST_F(UserSuite, TestAddShoppingList) {
-    u.addShoppingList(&s2);
+    u.addShoppingList(s3);
 
-    ASSERT_EQ(2,u.getMyLists().size());
+    ASSERT_EQ(3,u.getMyLists().size());
 }
 
 
@@ -33,5 +35,5 @@ TEST_F(UserSuite, TestAddShoppingList) {
 TEST_F(UserSuite, TestRemoveShoppingList) {
     u.removeShoppingList("Casa");
 
-    ASSERT_EQ(0,u.getMyLists().size());
+    ASSERT_EQ(1,u.getMyLists().size());
 }

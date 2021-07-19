@@ -13,9 +13,9 @@ protected:
 protected:
 
     void SetUp() override {
-        s.addItem(&frutta);
-        s.addItem(&verdura);
-        s.addItem(&pane);
+        s.addItem(frutta);
+        s.addItem(verdura);
+        s.addItem(pane);
     }
 
 
@@ -36,14 +36,14 @@ TEST_F(ShoppingListSuite, TestParametrizeConstructor) {
 
 TEST_F(ShoppingListSuite, TestAddItem) {
     Item carne("carne",4);
-    s.addItem(&carne);
+    s.addItem(carne);
     int size=s.getShoppingList().size();
     ASSERT_EQ(size,4);    //item nella lista
 
     ASSERT_EQ(s.notBought(),11); //oggetti da comprare in totale
 
     Item carne2("carne",2);    //provo ad aggiungere un oggetto con lo stesso nome(deve cambiare solo il numero tot di oggetti)
-    s.addItem(&carne2);
+    s.addItem(carne2);
     size=s.getShoppingList().size();
     ASSERT_EQ(size,4);
     ASSERT_EQ(s.notBought(),13);

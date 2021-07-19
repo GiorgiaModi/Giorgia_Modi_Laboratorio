@@ -37,6 +37,8 @@ exception
 -
 stdexcept
 -
+memory
+-
 iostream
 -
 
@@ -56,6 +58,8 @@ algorithm
 exception
 -
 stdexcept
+-
+memory
 -
 
 C:/Users/Giorg/Desktop/Esame_Laboratorio/main.cpp

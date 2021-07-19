@@ -4,9 +4,10 @@
 
 #include "User.h"
 
-void User::addShoppingList(ShoppingList *shoppingList) {
-    myLists.insert(make_pair(shoppingList->getShoppingListName(), shoppingList));
-    shoppingList->subscribe(this);
+void User::addShoppingList(ShoppingList& shoppingList) {
+    auto sListPtr= make_shared<ShoppingList>(shoppingList);
+    myLists.insert(make_pair(shoppingList.getShoppingListName(), sListPtr));
+    shoppingList.subscribe(this);
 }
 
 
@@ -15,9 +16,9 @@ void User::removeShoppingList(const string &name) {
     if (itr == myLists.end()) {
         throw std::invalid_argument("Invalid shopping list name");
     } else {
+        itr->second->unsubscribe(this);
         myLists.erase(name);
     }
-    itr->second->unsubscribe(this);
 }
 
 
@@ -31,6 +32,6 @@ void User::update(const string &listName) {
 
 }
 
-const map<string, ShoppingList *> &User::getMyLists() const {
+const map<string, shared_ptr<ShoppingList>> &User::getMyLists() const {
     return myLists;
 }

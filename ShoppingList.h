@@ -15,6 +15,7 @@
 #include <utility>
 #include <exception>
 #include <stdexcept>
+#include <memory>
 
 #include <iostream>
 using namespace std;
@@ -25,7 +26,7 @@ public:
 
     ShoppingList(const string &shoppingListName) : shoppingListName(shoppingListName) {}
 
-    virtual ~ShoppingList(){}
+    virtual ~ShoppingList()=default;
 
     virtual void subscribe(Observer* o) override;
 
@@ -33,7 +34,7 @@ public:
 
     virtual void notify() override;
 
-    void addItem(Item* item);
+    void addItem(Item& item);
 
     void removeItem(const string& name);
 
@@ -49,14 +50,14 @@ public:
 
     void setShoppingListName(const string &shoppingListName);
 
-    const map<string, Item *> &getShoppingList() const;
+    const map<string, shared_ptr<Item>> &getShoppingList() const;
 
     const list<Observer *> &getObservers() const;
 
 private:
 
     list<Observer*> observers;
-    map<string,Item*> shoppingList;
+    map<string, shared_ptr<Item>> shoppingList;
     string shoppingListName;
 
 };

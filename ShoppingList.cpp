@@ -4,14 +4,17 @@
 
 #include "ShoppingList.h"
 
-void ShoppingList::addItem(Item *item) {
+void ShoppingList::addItem(Item &item) {
 
-    auto itr = shoppingList.find(item->getItemName());
+    auto itr = shoppingList.find(item.getItemName());
     if (itr == shoppingList.end()) //l'oggetto non è ancora presente
-        shoppingList.insert(make_pair(item->getItemName(), item));
+    {
+        auto itemPtr= make_shared<Item>(item);
+        shoppingList.insert(make_pair(item.getItemName(), itemPtr));
+    }
     else
     {
-        int result= itr->second->getItemQuantity() + item->getItemQuantity();
+        int result= itr->second->getItemQuantity() + item.getItemQuantity();
         itr->second->setItemQuantity(result);
     }
 
@@ -92,7 +95,7 @@ void ShoppingList::print() {
 
     for (auto &itr: shoppingList) {
         cout << itr.first << "     " << itr.second->getItemQuantity();
-        if (itr.second->isBought())
+        if (itr.second->isBought()==true)
             cout << "       Bought" << endl;
         else
             cout << "       Not bought" << endl;
@@ -114,7 +117,8 @@ int ShoppingList::notBought() {
     return result;
 }
 
-const map<string, Item *> &ShoppingList::getShoppingList() const {
+
+const map<string, shared_ptr<Item>> &ShoppingList::getShoppingList() const {
     return shoppingList;
 }
 

@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <exception>
 #include <stdexcept>
+#include <memory>
 
 using namespace std;
 
@@ -22,16 +23,16 @@ public:
             itr.second->unsubscribe(this);
     }
 
-    void addShoppingList(ShoppingList *shoppingList);
+    void addShoppingList(ShoppingList& shoppingList);
 
     virtual void update(const string &listName) override;
 
     void removeShoppingList(const string &name);
 
-    const map<string, ShoppingList *> &getMyLists() const;
+    const map<string, shared_ptr<ShoppingList >> &getMyLists() const;
 
 private:
-    map<string, ShoppingList *> myLists; //le liste sono i subject; un User può avere più subject
+    map<string, shared_ptr<ShoppingList>> myLists; //le liste sono i subject; un User può avere più subject
 
 };
 

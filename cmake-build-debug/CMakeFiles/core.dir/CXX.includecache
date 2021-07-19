@@ -18,10 +18,6 @@ C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
 string
 -
 
-C:/Users/Giorg/Desktop/Esame_Laboratorio/ShoppingList.cpp
-ShoppingList.h
-C:/Users/Giorg/Desktop/Esame_Laboratorio/ShoppingList.h
-
 C:/Users/Giorg/Desktop/Esame_Laboratorio/ShoppingList.h
 Observer.h
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
@@ -40,6 +36,8 @@ utility
 exception
 -
 stdexcept
+-
+memory
 -
 iostream
 -
@@ -64,5 +62,7 @@ algorithm
 exception
 -
 stdexcept
+-
+memory
 -
 
