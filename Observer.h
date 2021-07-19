@@ -11,7 +11,7 @@ using namespace std;
 
 class Observer {
 public:
-    virtual ~Observer(){}
+    virtual ~Observer()=default;
 
     virtual void update(const string& listName)=0;
 };

@@ -18,8 +18,13 @@ using namespace std;
 
 struct Item{
 public:
-    Item(string s, int q=1):  itemName(std::move(s)),itemQuantity(q),bought(false){}
-    Item()=default;
+    Item(string s, int q=1):  itemName(std::move(s)){
+        if(q>=0)
+            itemQuantity=q;
+        else
+            throw std::out_of_range("the quantity entered is not positive");
+    }
+
     string itemName;
     int itemQuantity;
     bool bought;
@@ -28,8 +33,6 @@ public:
 
 class ShoppingList: public Subject {
 public:
-
-    ShoppingList()=default;
 
     ShoppingList(const string &shoppingListName) : shoppingListName(shoppingListName) {}
 
