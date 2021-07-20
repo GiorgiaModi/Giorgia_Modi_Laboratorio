@@ -4,7 +4,7 @@
 
 #include "ShoppingList.h"
 
-void ShoppingList::addItem(Item &item) {
+void ShoppingList::addItem(const Item &item) {
 
     auto itr = shoppingList.find(item.getItemName());
     if (itr != shoppingList.end() && itr->second->getCategory()==item.getCategory()) //l'oggetto è già presente
@@ -22,16 +22,20 @@ void ShoppingList::addItem(Item &item) {
     bool flag=false;
     for(auto&it: categories)
     {
-        if(it==itemCat)
+        if(it.first==itemCat)
         {
-            flag=true;
+            flag=true;  //categoria già  presente, aggiorno numero oggetti nella categoria
+            it.second++;
             break;
         }
     }
     if(!flag)
-        categories.push_back(itemCat);
+    {
+        categories.insert(make_pair(itemCat,1));
+    }
 
     notify();
+
 }
 
 
@@ -40,10 +44,19 @@ void ShoppingList::removeItem(const string &name) {
     if (itr == shoppingList.end()) {
         throw std::invalid_argument("Invalid item name");
     } else {
-        shoppingList.erase(itr);
+        auto itc= categories.find(itr->second->getCategory());      //tratto la mappa di categorie
+        itc->second--;
+        if(itc->second==0)//e' presente solo l'elemento in questione
+        {
+            categories.erase(itc);
+        }
+
         itr->second->setItemQuantity(0);
+        shoppingList.erase(itr);        //tratto la mappa di oggetti
+
         notify();
     }
+
 }
 
 
@@ -93,19 +106,20 @@ void ShoppingList::printNotBought() {
     string cat;
     bool first;
     for (auto &itr: categories) {
-        cat = itr;
+        cat = itr.first;
         first = true;
-        for (auto &s: shoppingList) {
-            if (s.second->getCategory() == cat) {
-                if (first) {
-                    cout << "Categoria:  " << cat << endl;
-                    first = false;
-                }
+        if(itr.second!=0) {
+            for (auto &s: shoppingList) {
+                if (s.second->getCategory() == cat) {
+                    if (first) {
+                        cout << "Categoria:  " << cat << endl;
+                        first = false;
+                    }
 
-                if(!s.second->isBought() && s.second->getItemQuantity()!=0)
-                {
-                    cout << s.first << "     " << s.second->getItemQuantity()<<endl;
-                    result += s.second->getItemQuantity();   //conto gli oggetti da acquistare;
+                    if (!s.second->isBought() && s.second->getItemQuantity() != 0) {
+                        cout << s.first << "     " << s.second->getItemQuantity() << endl;
+                        result += s.second->getItemQuantity();   //conto gli oggetti da acquistare;
+                    }
                 }
             }
         }
@@ -140,7 +154,7 @@ const list<Observer *> &ShoppingList::getObservers() const {
     return observers;
 }
 
-const list<string> &ShoppingList::getCategories() const {
+const map<string,int> &ShoppingList::getCategories() const {
     return categories;
 }
 

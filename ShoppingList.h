@@ -34,7 +34,7 @@ public:
 
     virtual void notify() override;
 
-    void addItem(Item& item);
+    void addItem(const Item& item);
 
     void removeItem(const string& name);
 
@@ -52,13 +52,13 @@ public:
 
     const list<Observer *> &getObservers() const;
 
-    const list <string> &getCategories() const;
+    const map <string,int> &getCategories() const;
 
 private:
 
     list<Observer*> observers;
     map<string, shared_ptr<Item>> shoppingList;
-    list<string> categories;
+    map<string, int> categories;
     string shoppingListName;
 
 };

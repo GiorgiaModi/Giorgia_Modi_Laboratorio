@@ -6,7 +6,7 @@
 #include <stdexcept>
 using namespace std;
 
-class User;
+
 
 void print(const ShoppingList& sl){
     cout << "Nome lista:  " << sl.getShoppingListName() << endl<<endl;
@@ -14,25 +14,23 @@ void print(const ShoppingList& sl){
     string cat;
     bool first;
     for (auto &itr: sl.getCategories()) {
-        cat=itr;
+        cat=itr.first;
         first=true;
-        for(auto &s: sl.getShoppingList())
-        {
-            if(s.second->getCategory()==cat)
-            {
-                if(first)
-                {
-                    cout<<"Categoria:  "<<cat<<endl;
-                    first=false;
-                }
+        if(itr.second!=0) {
+            for (auto &s: sl.getShoppingList()) {
+                if (s.second->getCategory() == cat) {
+                    if (first && itr.second != 0) {
+                        cout << "Categoria:  " << cat << endl;
+                        first = false;
+                    }
 
-                if(s.second->getItemQuantity()!=0)
-                {
-                    cout << s.first << "     " << s.second->getItemQuantity();
-                    if (s.second->isBought())
-                        cout << "       Bought" << endl;
-                    else
-                        cout << "       Not bought" << endl;
+                    if (s.second->getItemQuantity() != 0) {
+                        cout << s.first << "     " << s.second->getItemQuantity();
+                        if (s.second->isBought())
+                            cout << "       Bought" << endl;
+                        else
+                            cout << "       Not bought" << endl;
+                    }
                 }
             }
         }
@@ -54,12 +52,12 @@ int main() {
 
     cout<<"         Create the shopping lists: "<<endl<<endl;
 
-
     while(create)
     {
-        cout<<endl;
-        cout<<"Enter 1 if you want to create a new shopping list, 2 if you want to move on"<<endl;
+        cout<<endl<<"Enter 1 if you want to create a new shopping list, 2 if you want to move on"<<endl;
         cin>>result;
+
+        cout<<endl;
 
         switch (result) {
             case 1 : {
