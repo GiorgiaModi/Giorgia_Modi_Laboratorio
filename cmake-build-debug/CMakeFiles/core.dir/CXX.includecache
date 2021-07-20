@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Giorg/Desktop/Esame_Laboratorio/Item.cpp
-Item.h
-C:/Users/Giorg/Desktop/Esame_Laboratorio/Item.h
-
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Item.h
 string
 -
@@ -53,24 +49,4 @@ iostream
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Subject.h
 Observer.h
 C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
-
-C:/Users/Giorg/Desktop/Esame_Laboratorio/User.cpp
-User.h
-C:/Users/Giorg/Desktop/Esame_Laboratorio/User.h
-
-C:/Users/Giorg/Desktop/Esame_Laboratorio/User.h
-ShoppingList.h
-C:/Users/Giorg/Desktop/Esame_Laboratorio/ShoppingList.h
-Observer.h
-C:/Users/Giorg/Desktop/Esame_Laboratorio/Observer.h
-iostream
--
-algorithm
--
-exception
--
-stdexcept
--
-memory
--
 

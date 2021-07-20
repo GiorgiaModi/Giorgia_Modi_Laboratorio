@@ -28,7 +28,7 @@ void ShoppingList::addItem(Item &item) {
             break;
         }
     }
-    if(flag==false)
+    if(!flag)
         categories.push_back(itemCat);
 
     notify();
@@ -58,7 +58,7 @@ void ShoppingList::setBought(const string &name) {
 
     if (itr != shoppingList.end()) {
         bool isBought = itr->second->isBought();
-        if (isBought==true)
+        if (isBought)
             itr->second->setItemBought(false);
         else
             itr->second->setItemBought(true);

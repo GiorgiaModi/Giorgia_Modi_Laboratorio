@@ -29,7 +29,7 @@ void print(const ShoppingList& sl){
                 if(s.second->getItemQuantity()!=0)
                 {
                     cout << s.first << "     " << s.second->getItemQuantity();
-                    if (s.second->isBought()==true)
+                    if (s.second->isBought())
                         cout << "       Bought" << endl;
                     else
                         cout << "       Not bought" << endl;
