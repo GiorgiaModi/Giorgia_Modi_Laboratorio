@@ -31,7 +31,7 @@ protected:
 
     bool updated = false;
     ShoppingList s {"Casa"};
-    Item carta {"carta",3};
+    Item carta {"carta","bagno",3};
 
 };
 

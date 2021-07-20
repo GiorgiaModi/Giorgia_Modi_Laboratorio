@@ -7,15 +7,15 @@
 void ShoppingList::addItem(Item &item) {
 
     auto itr = shoppingList.find(item.getItemName());
-    if (itr == shoppingList.end()) //l'oggetto non è ancora presente
-    {
-        auto itemPtr= make_shared<Item>(item);
-        shoppingList.insert(make_pair(item.getItemName(), itemPtr));
-    }
-    else
+    if (itr != shoppingList.end() && itr->second->getCategory()==item.getCategory()) //l'oggetto è già presente
     {
         int result= itr->second->getItemQuantity() + item.getItemQuantity();
         itr->second->setItemQuantity(result);
+    }
+    else
+    {
+        auto itemPtr= make_shared<Item>(item);
+        shoppingList.insert(make_pair(item.getItemName(), itemPtr));
     }
 
     string itemCat=item.getCategory();   //serve in seguito per andare a stampare gli oggetti in base alla categoria
