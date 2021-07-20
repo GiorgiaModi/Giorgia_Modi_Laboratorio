@@ -63,16 +63,19 @@ int main() {
                 string quantityString;
                 int quantityInt;
                 string itemCategory;
-                cout<<"Insert item name, item category and quantity: "<<endl;
+                cout<<"Insert item name, item category and quantity (insert default for default quantity): "<<endl;
                 cin>>itemName;
                 cin>>itemCategory;
                 cin>>quantityString;
-
-                try {
-                    quantityInt = std::stoi(quantityString);
-                }catch(invalid_argument& e)  //se inserisco enter viene impostato valore di default
-                {
+                if(quantityString=="default")
                     quantityInt=defaultQuantity;
+                else
+                {
+                    try {
+                        quantityInt = std::stoi(quantityString);
+                    }catch(invalid_argument& e){  //se inserisco enter viene impostato valore di default
+                        quantityInt=defaultQuantity;
+                    }
                 }
 
                 try{
