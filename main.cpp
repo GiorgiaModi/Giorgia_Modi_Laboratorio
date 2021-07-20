@@ -1,11 +1,43 @@
 #include <iostream>
 #include "Subject.h"
 #include "ShoppingList.h"
-#include "Observer.h"
 #include "User.h"
 #include <string>
 #include <stdexcept>
 using namespace std;
+
+class User;
+
+void print(const ShoppingList& sl){
+    cout << "Nome lista:  " << sl.getShoppingListName() << endl<<endl;
+
+    string cat;
+    bool first;
+    for (auto &itr: sl.getCategories()) {
+        cat=itr;
+        first=true;
+        for(auto &s: sl.getShoppingList())
+        {
+            if(s.second->getCategory()==cat)
+            {
+                if(first)
+                {
+                    cout<<"Categoria:  "<<cat<<endl;
+                    first=false;
+                }
+
+                if(s.second->getItemQuantity()!=0)
+                {
+                    cout << s.first << "     " << s.second->getItemQuantity();
+                    if (s.second->isBought()==true)
+                        cout << "       Bought" << endl;
+                    else
+                        cout << "       Not bought" << endl;
+                }
+            }
+        }
+    }
+}
 
 
 int main() {
@@ -151,7 +183,7 @@ int main() {
                             itrl->second.addItem(itri->second);
                     }
                 }catch(std::invalid_argument& e){
-                    cout<<e.what()<<endl;}
+                    cerr<<e.what()<<endl;}
                 break;
             }
 
@@ -248,7 +280,7 @@ int main() {
         for(auto &itl: itr.second.getMyLists())
         {
             cout<<endl;
-            itl.second->print();
+            print(*itl.second);
         }
     }
 

@@ -23,16 +23,8 @@ public:
         return itemName;
     }
 
-    void setItemName(const string &itemName) {
-        Item::itemName = itemName;
-    }
-
     const string &getCategory() const {
         return category;
-    }
-
-    void setCategory(const string &category) {
-        Item::category = category;
     }
 
     int getItemQuantity() const {
@@ -50,7 +42,7 @@ public:
         return bought;
     }
 
-    void setBought(bool bought) {
+    void setItemBought(bool bought) {
         Item::bought = bought;
     }
 
@@ -58,7 +50,7 @@ private:
     string itemName;
     string category;
     int itemQuantity;
-    bool bought;
+    bool bought=false;
 };
 
 

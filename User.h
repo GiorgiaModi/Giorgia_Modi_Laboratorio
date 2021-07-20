@@ -13,6 +13,7 @@
 #include <stdexcept>
 #include <memory>
 
+
 using namespace std;
 
 class User : public Observer {
@@ -23,9 +24,9 @@ public:
             itr.second->unsubscribe(this);
     }
 
-    void addShoppingList(ShoppingList& shoppingList);
-
     virtual void update(const string &listName) override;
+
+    void addShoppingList(ShoppingList& shoppingList);
 
     void removeShoppingList(const string &name);
 

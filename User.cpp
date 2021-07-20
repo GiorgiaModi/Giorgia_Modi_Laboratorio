@@ -28,8 +28,6 @@ void User::update(const string &listName) {
     cout << "Lista ' " << listName << " ' aggiornata: " << endl;
     cout << endl;
     itr->second->printNotBought();
-
-
 }
 
 const map<string, shared_ptr<ShoppingList>> &User::getMyLists() const {

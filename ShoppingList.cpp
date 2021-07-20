@@ -40,7 +40,7 @@ void ShoppingList::removeItem(const string &name) {
     if (itr == shoppingList.end()) {
         throw std::invalid_argument("Invalid item name");
     } else {
-        shoppingList.erase(name);
+        shoppingList.erase(itr);
         itr->second->setItemQuantity(0);
         notify();
     }
@@ -58,10 +58,10 @@ void ShoppingList::setBought(const string &name) {
 
     if (itr != shoppingList.end()) {
         bool isBought = itr->second->isBought();
-        if (isBought)
-            itr->second->setBought(false);
+        if (isBought==true)
+            itr->second->setItemBought(false);
         else
-            itr->second->setBought(true);
+            itr->second->setItemBought(true);
 
         notify();
     } else
@@ -90,11 +90,24 @@ void ShoppingList::printNotBought() {
     int result = 0;
     cout << "Oggetti da acquistare: ";
     cout << endl;
-    for (auto &itr: shoppingList) {
-        if (!itr.second->isBought()) {
-            result += itr.second->getItemQuantity();   //conto gli oggetti da acquistare;
-            cout << itr.second->getItemName();
-            cout << "      " << itr.second->getItemQuantity() << endl;
+    string cat;
+    bool first;
+    for (auto &itr: categories) {
+        cat = itr;
+        first = true;
+        for (auto &s: shoppingList) {
+            if (s.second->getCategory() == cat) {
+                if (first) {
+                    cout << "Categoria:  " << cat << endl;
+                    first = false;
+                }
+
+                if(!s.second->isBought() && s.second->getItemQuantity()!=0)
+                {
+                    cout << s.first << "     " << s.second->getItemQuantity()<<endl;
+                    result += s.second->getItemQuantity();   //conto gli oggetti da acquistare;
+                }
+            }
         }
     }
     cout << endl;
@@ -103,41 +116,10 @@ void ShoppingList::printNotBought() {
 }
 
 
-void ShoppingList::print() {
-    cout << "Nome lista:  " << shoppingListName << endl<<endl;
-
-    string cat;
-    bool first;
-    for (auto &itr: categories) {
-       cat=itr;
-       first=true;
-       for(auto &s: shoppingList)
-       {
-           if(s.second->getCategory()==cat)
-           {
-               if(first)
-               {
-                   cout<<"Categoria:  "<<cat<<endl;
-                   first=false;
-               }
-
-               cout << s.first << "     " << s.second->getItemQuantity();
-               if (s.second->isBought()==true)
-                   cout << "       Bought" << endl;
-               else
-                   cout << "       Not bought" << endl;
-
-
-           }
-       }
-    }
-
-}
-
-
 void ShoppingList::setShoppingListName(const string &shoppingListName) {
     ShoppingList::shoppingListName = shoppingListName;
 }
+
 
 int ShoppingList::notBought() {
     int result=0;
@@ -156,6 +138,10 @@ const map<string, shared_ptr<Item>> &ShoppingList::getShoppingList() const {
 
 const list<Observer *> &ShoppingList::getObservers() const {
     return observers;
+}
+
+const list<string> &ShoppingList::getCategories() const {
+    return categories;
 }
 
 
